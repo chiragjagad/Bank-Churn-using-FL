@@ -24,12 +24,12 @@ if __name__ == "__main__":
 
     with open("xtrain.pkl", "rb") as f:
         x_train = pickle.load(f)
-        x_train = x_train[1700*(clientID - 1): 1700*clientID]
+        x_train = x_train[1360*(clientID - 1): 1360*clientID]
     with open("xtest.pkl", "rb") as f:
         x_test = pickle.load(f)
     with open("ytrain.pkl", "rb") as f:
         y_train = pickle.load(f)
-        y_train = y_train[1700*(clientID - 1): 1700*clientID]
+        y_train = y_train[1360*(clientID - 1): 1360*clientID]
     with open("ytest.pkl", "rb") as f:
         y_test = pickle.load(f)
 

@@ -10,4 +10,4 @@ if __name__ == "__main__":
         min_available_clients=10,
     )
     fl.server.start_server("127.0.0.1:8080", config={
-                           "num_rounds": 5}, strategy=strategy)
+                           "num_rounds": 10}, strategy=strategy)
