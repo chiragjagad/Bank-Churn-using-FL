@@ -7,6 +7,7 @@ import flwr as fl
 import pickle
 
 if __name__ == "__main__":
+    clientID = 1
     model = Sequential(
         [
             Dense(24, input_shape=(33,), activation=LeakyReLU(alpha=0.01)),
@@ -23,10 +24,12 @@ if __name__ == "__main__":
 
     with open("xtrain.pkl", "rb") as f:
         x_train = pickle.load(f)
+        x_train = x_train[1360*(clientID - 1): 1360*clientID]
     with open("xtest.pkl", "rb") as f:
         x_test = pickle.load(f)
     with open("ytrain.pkl", "rb") as f:
         y_train = pickle.load(f)
+        y_train = y_train[1360*(clientID - 1): 1360*clientID]
     with open("ytest.pkl", "rb") as f:
         y_test = pickle.load(f)
 
@@ -37,7 +40,7 @@ if __name__ == "__main__":
 
         def fit(self, parameters, config):
             model.set_weights(parameters)
-            model.fit(x_train, y_train, epochs=100,
+            model.fit(x_train, y_train, epochs=500,
                       batch_size=128)
             return model.get_weights(), len(x_train)
 
