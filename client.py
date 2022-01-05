@@ -2,14 +2,19 @@ import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import LeakyReLU
+from tensorflow.keras.layers import Dropout
 import flwr as fl
 import pickle
+
 if __name__ == "__main__":
     model = Sequential(
         [
-            Dense(16, input_shape=(33,), activation=LeakyReLU(alpha=0.01)),
+            Dense(24, input_shape=(33,), activation=LeakyReLU(alpha=0.01)),
+            Dropout(0.2),
             Dense(16, activation="relu"),
+            Dropout(0.2),
             Dense(8, activation="relu"),
+            Dropout(0.2),
             Dense(1, activation="sigmoid"),
         ]
     )
