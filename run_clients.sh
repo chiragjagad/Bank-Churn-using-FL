@@ -18,7 +18,7 @@
 set -e
 
 SERVER_ADDRESS="127.0.0.1:8080"
-NUM_CLIENTS=2
+NUM_CLIENTS=5
 
 echo "Starting $NUM_CLIENTS clients."
 for ((i = 0; i < $NUM_CLIENTS; i++))

@@ -40,8 +40,8 @@ if __name__ == "__main__":
 
         def fit(self, parameters, config):
             model.set_weights(parameters)
-            model.fit(x_train, y_train, epochs=500,
-                      batch_size=128)
+            model.fit(x_train, y_train, epochs=100,
+                      batch_size=256)
             return model.get_weights(), len(x_train)
 
         def evaluate(self, parameters, config):
